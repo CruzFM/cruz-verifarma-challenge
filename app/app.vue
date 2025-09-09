@@ -10,5 +10,8 @@ if (route.path === '/') {
 </script>
 
 <template>
-  <NuxtPage />
+  <NuxtLayout>
+    <NuxtPage />
+
+  </NuxtLayout>
 </template>
