@@ -33,13 +33,9 @@ const loadMoreResults = async()=>{
     currentPage.value += 1;
     try
     {
-        console.log("Before the call, pending is: ", pending.value)
         const newData = await $fetch<SearchResponse>(apiUrl.value);
-        console.log("After the call, pending is: ", pending.value)
-        
         if(newData?.Search && newData.Search.length > 0){
             searchResults.value = [...searchResults.value, ...newData.Search];
-            console.log("Total results after loading more:", searchResults.value);
         }
             await nextTick();
             const newDocumentHeight = document.documentElement.scrollHeight;
