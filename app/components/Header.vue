@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const searchQuery = ref("");
+const route = useRoute();
 
 function onSearch() {
   const query = searchQuery.value.trim();
@@ -13,6 +14,13 @@ function onSearch() {
 }
 
 const { debouncedFn: debouncedOnSearch } = useDebounce(onSearch, 500);
+
+watch(
+  () => route.path,
+  () => {
+    searchQuery.value = "";
+  }
+);
 </script>
 
 <template>

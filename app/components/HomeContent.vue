@@ -37,16 +37,12 @@ const { data, pending, error, refresh } = await useFetch<SearchResponse>(apiUrl)
 // Store the movies in a ref() reactive variable
 const movies = ref(data.value?.Search || []);
 
-// Create a slug for the search link. Funcionality: TO-DO.
-const searchSlug = computed(() => {
-  return props.searchQuery.toLowerCase().replace(/\s+/g, "-") + "-" + (props.year || props.type);
-});
 </script>
 
 <template>
   <section class="flex items-center my-7">
     <h2 class="text-4xl">{{ props.title}}</h2>
-    <NuxtLink :to="`/search/${searchSlug}`" class="link ml-auto">
+    <NuxtLink :to="`/search/${props.searchQuery}`" class="link ml-auto">
       View more
     </NuxtLink>
   </section>

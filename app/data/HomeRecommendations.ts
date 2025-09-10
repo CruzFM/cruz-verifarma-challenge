@@ -2,20 +2,18 @@ import type { Recommendation } from '@/types/Recommendation';
 
 export const RECOMMENDATIONS: Recommendation[] = [
     {
-        title: 'Halloween 2025 movies',
+        title: 'Halloween movies',
         searchQuery: 'halloween',
         type: 'movie',
-        year: '2025',
     },
     {
-        title: 'Last Halloween movies',
-        searchQuery: 'halloween',
+        title: 'Christmas movies',
+        searchQuery: 'christmas',
         type: 'movie',
-        year: '2024',
     },
     {
-        title: 'Horror series',
-        searchQuery: 'horror',
-        type: 'series',
+        title: 'Super power!',
+        searchQuery: 'super',
+        type: 'movie',
     }
 ]
