@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import type { SearchResponse } from '@/types/Api';
+
+definePageMeta({
+  middleware: ['authenticated'],
+})
 const route = useRoute();
 
 const currentPage = ref(1);

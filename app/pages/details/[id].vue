@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import type { SearchByIdResponse } from "@/types/Api";
+
+definePageMeta({
+  middleware: ['authenticated'],
+});
+
 const route = useRoute();
 
 const apiUrl = computed(() => {
