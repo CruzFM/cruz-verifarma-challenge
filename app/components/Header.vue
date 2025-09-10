@@ -7,7 +7,7 @@ function onSearch() {
     navigateTo("/home");
     return;
   }
-  if (query !== "") {
+  if (query !== "" && query.length >= 3) {
     navigateTo(`/search/${encodeURIComponent(searchQuery.value.trim())}`);
   }
 }
