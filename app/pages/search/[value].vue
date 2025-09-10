@@ -33,16 +33,15 @@ const loadMoreResults = async()=>{
     currentPage.value += 1;
     try
     {
+        console.log("Before the call, pending is: ", pending.value)
         const newData = await $fetch<SearchResponse>(apiUrl.value);
-        console.log("API Response for page " + currentPage.value + ":", newData);
-        console.log(currentPage.value);
-        console.log("New data loaded:", newData);
+        console.log("After the call, pending is: ", pending.value)
+        
         if(newData?.Search && newData.Search.length > 0){
             searchResults.value = [...searchResults.value, ...newData.Search];
             console.log("Total results after loading more:", searchResults.value);
         }
             await nextTick();
-            
             const newDocumentHeight = document.documentElement.scrollHeight;
             const heightIncrease = newDocumentHeight - (scrollBeforeLoad + window.innerHeight + 200);
             
@@ -72,32 +71,18 @@ const handleScroll = async () => {
   }
 };
 
-const throttle = (callback: (...args: any[]) => void, delay: number) => {
-  let timeoutId: ReturnType<typeof setTimeout> | null = null;
-  return (...args: any[]) => {
-    if (!timeoutId) {
-      timeoutId = setTimeout(() => {
-        callback(...args);
-        timeoutId = null;
-      }, delay);
-    }
-  };
-};
-
-const throttledHandleScroll = throttle(handleScroll, 300);
-
 onMounted(() => {
-  window.addEventListener('scroll', throttledHandleScroll);
+  window.addEventListener('scroll', handleScroll);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', throttledHandleScroll);
+  window.removeEventListener('scroll', handleScroll);
 });
 
 </script>
 
 <template>
-    <div v-if="pending" class="flex justify-center items-center min-h-screen">
+    <div v-if="pending && searchResults.length < 1" class="flex justify-center items-center min-h-screen">
       <div class="loading loading-spinner loading-lg"></div>
     </div>
     <div v-else-if="error" class="container mx-auto p-4">
