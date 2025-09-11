@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         { name: 'keywords', content: 'Nuxt3, TailwindCSS, Video Club, Verifarma, Challenge' },
       ],
       link:[
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
   }
