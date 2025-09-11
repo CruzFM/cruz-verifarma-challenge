@@ -11,12 +11,12 @@ const props = defineProps<Props>();
 
 <template>
   <NuxtLink :to="`/details/${props.imdbID}`" class="block rounded-md">
-    <div class="card bg-base-100 w-96 h-[500px] shadow-sm cursor-pointer hover:shadow-lg hover:shadow-gray-400 focus-within:shadow-lg transition-all duration-200"  :id="props.imdbID">
+    <div class="card bg-base-100 sm:w-96 h-[500px] shadow-sm cursor-pointer hover:shadow-lg hover:shadow-gray-400 focus-within:shadow-lg transition-all duration-200"  :id="props.imdbID">
       <figure class="rounded-t-md">
         <img
           :src="props.Poster"
           :alt="`${props.Title} poster`"
-          class="h-96 w-full object-cover"
+          class="h-full sm:h-96 w-full object-cover"
         />
       </figure>
       <div class="card-body bg-[#2A2A2A] text-white rounded-b-md">
