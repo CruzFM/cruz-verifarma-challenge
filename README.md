@@ -116,3 +116,8 @@ Design considerations included:
 - **[DaisyUI](https://daisyui.com/):** Extended Tailwind with pre-styled, accessible components.  
 - **[auth-utils]:** Nuxt's auth utilities. Used to mock the login logic, considering I couldn't develop an API on .NET or Next.js on time.
 - **[zod](https://zod.dev/):** To work along with `auth-utils`.
+
+## Credentials for login
+Since this was made as an example, and due to the lack of time to build myself an API, the only credentials that will be allowed to properly login as per the file `login.posts.ts` on `/server/api` are as follows:
+- **User**: admin@admin.com
+- **Password**: iamtheadmin
