@@ -24,8 +24,6 @@ const { data, pending, error, refresh } = await useFetch<SearchByIdResponse>(
 );
 
 const item = ref(data.value);
-
-console.log(item.value);
 </script>
 
 <template>

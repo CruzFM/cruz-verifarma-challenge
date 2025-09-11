@@ -7,6 +7,12 @@ interface Props {
   Poster: string;
 }
 const props = defineProps<Props>();
+
+const currentPoster = ref(props.Poster);
+
+const handleImageError = () => {
+  currentPoster.value = '/Unavailable.png';
+};
 </script>
 
 <template>
@@ -14,9 +20,10 @@ const props = defineProps<Props>();
     <div class="card bg-base-100 sm:w-96 h-[500px] shadow-sm cursor-pointer hover:shadow-lg hover:shadow-gray-400 focus-within:shadow-lg transition-all duration-200"  :id="props.imdbID">
       <figure class="rounded-t-md">
         <img
-          :src="props.Poster"
+          :src="currentPoster"
           :alt="`${props.Title} poster`"
           class="h-full sm:h-96 w-full object-cover"
+          @error="handleImageError"
         />
       </figure>
       <div class="card-body bg-[#2A2A2A] text-white rounded-b-md">
