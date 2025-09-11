@@ -4,10 +4,6 @@ const route = useRoute();
 
 function onSearch() {
   const query = searchQuery.value.trim();
-  if (query === "") {
-    navigateTo("/home");
-    return;
-  }
   if (query !== "" && query.length >= 3) {
     navigateTo(`/search/${encodeURIComponent(searchQuery.value.trim())}`);
   }
@@ -18,7 +14,9 @@ const { debouncedFn: debouncedOnSearch } = useDebounce(onSearch, 500);
 watch(
   () => route.path,
   () => {
-    searchQuery.value = "";
+    if(!route.name.includes("search")){
+      searchQuery.value = "";
+    }
   }
 );
 </script>

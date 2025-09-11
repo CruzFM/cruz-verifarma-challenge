@@ -41,7 +41,6 @@ const loadMoreResults = async()=>{
         if(newData?.Search && newData.Search.length > 0){
             searchResults.value = [...searchResults.value, ...newData.Search];
         }
-            await nextTick();
             const newDocumentHeight = document.documentElement.scrollHeight;
             const heightIncrease = newDocumentHeight - (scrollBeforeLoad + window.innerHeight + 200);
             
