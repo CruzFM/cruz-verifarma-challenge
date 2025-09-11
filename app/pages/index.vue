@@ -1,12 +1,10 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: ['authenticated'],
-})
-onMounted(()=>{
-    navigateTo('/home')
+  layout: false,
+  middleware: ['authenticated', 'redirect'],
 })
 </script>
 
 <template>
-
+  <div class="min-h-dvh bg-neutral text-white">Redirecting...</div>
 </template>

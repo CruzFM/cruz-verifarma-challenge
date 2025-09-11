@@ -46,11 +46,6 @@ watch(
           @input="debouncedOnSearch"
         />
       </div>
-
-      <!-- This is just a placeholder, if I have time for creating an API, i'll implement it, otherwise it'll be deleted. -->
-      <div class="rounded-full border border-black p-2 py-3 text-white">
-        User
-      </div>
     </div>
   </header>
 </template>
