@@ -48,7 +48,7 @@ const movies = ref(data.value?.Search || []);
   </section>
   <section v-if="pending" class="loading loading-spinner"></section>
   <section v-else-if="error" class="alert alert-error">Error loading movies</section>
-  <section class="flex flex-wrap gap-2 justify-center">
+  <section v-else class="flex flex-wrap gap-2 justify-start max-w-fit mx-auto">
     <Card v-for="movie in movies" :key="movie.imdbID" v-bind="movie" />
   </section>
 </template>
