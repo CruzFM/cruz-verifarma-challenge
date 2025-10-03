@@ -96,8 +96,11 @@ onUnmounted(() => {
       </h1>
     </header>
 
-    <section v-if="searchResults.length === 0" class="text-center">
+    <section v-if="searchResults.length === 0" class="text-center flex flex-col justify-center align-center">
       <p>No results found.</p>
+      <button @click="$router.back()" class="btn btn-ghost gap-2 mt-4 self-center">
+        ← Back
+      </button>
     </section>
 
     <section v-else class="flex">
