@@ -79,17 +79,17 @@ onUnmounted(() => {
 <template>
   <main
     v-if="pending && searchResults.length < 1"
-    class="flex justify-center items-center min-h-screen"
+    class="flex justify-center items-center min-h-screen pt-20"
   >
     <div class="loading loading-spinner loading-lg"></div>
   </main>
 
-  <main v-else-if="error" class="container mx-auto p-4">
+  <main v-else-if="error" class="container mx-auto p-4 pt-20 text-white">
     <section class="alert alert-error">
       <span>Error loading search results</span>
     </section>
   </main>
-  <main v-else class="md:w-11/12 mx-auto p-4 text-white">
+  <main v-else class="md:w-11/12 mx-auto p-4 min-h-dvh text-white pt-20">
     <header class="mb-4">
       <h1 class="text-2xl font-bold">
         Search Results for "{{ $route.params.value }}"

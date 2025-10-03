@@ -27,7 +27,7 @@ const item = ref(data.value);
 </script>
 
 <template>
-  <div v-if="pending" class="flex justify-center items-center min-h-screen">
+  <div v-if="pending" class="flex justify-center items-center min-h-screen pt-20">
     <div class="loading loading-spinner loading-lg"></div>
   </div>
   <div v-else-if="error" class="container mx-auto p-4">
@@ -35,7 +35,7 @@ const item = ref(data.value);
       <span>Error loading movie details</span>
     </div>
   </div>
-  <main v-else class="container mx-auto p-4 text-white">
+  <main v-else class="container mx-auto p-4 text-white pt-20">
     <nav class="mb-6">
       <button @click="$router.back()" class="btn btn-ghost gap-2">
         ← Back

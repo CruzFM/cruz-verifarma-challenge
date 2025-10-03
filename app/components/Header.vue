@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const searchQuery = ref("");
 const route = useRoute();
+const isScrolled = ref(false);
 
 function onSearch() {
   const query = searchQuery.value.trim();
@@ -11,6 +12,10 @@ function onSearch() {
 
 const { debouncedFn: debouncedOnSearch } = useDebounce(onSearch, 500);
 
+function handleScroll(){
+  isScrolled.value = window.scrollY > 50;
+}
+
 watch(
   () => route.path,
   () => {
@@ -19,10 +24,21 @@ watch(
     }
   }
 );
+
+onMounted( () =>{
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted( ()=>{
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
-  <header class="flex w-full py-2 px-5 items-center border-b border-[#2A2A2A]">
+  <header 
+    class="fixed top-0 left-0 right-0 z-50 flex w-full py-4 px-5 items-center transition-all duration-300"
+    :class="isScrolled ? 'bg-[#0a0a0a]/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'"
+  >
     <NuxtLink to="/home" aria-label="Go to homepage">
       <img
         src="~/assets/images/veriflix-logo.svg"
