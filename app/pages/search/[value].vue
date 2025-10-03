@@ -89,7 +89,7 @@ onUnmounted(() => {
       <span>Error loading search results</span>
     </section>
   </main>
-  <main v-else class="container mx-auto p-4 text-white">
+  <main v-else class="md:w-11/12 mx-auto p-4 text-white">
     <header class="mb-4">
       <h1 class="text-2xl font-bold">
         Search Results for "{{ $route.params.value }}"
@@ -100,8 +100,8 @@ onUnmounted(() => {
       <p>No results found.</p>
     </section>
 
-    <section v-else class="flex justify-center">
-      <div class="flex flex-wrap gap-4 justify-start max-w-fit">
+    <section v-else class="flex">
+      <div class="movies-grid w-full">
         <Card
           v-for="result in searchResults"
           :key="result.imdbID"
@@ -111,3 +111,10 @@ onUnmounted(() => {
     </section>
   </main>
 </template>
+<style scoped>
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+</style>

@@ -17,12 +17,12 @@ const handleImageError = () => {
 
 <template>
   <NuxtLink :to="`/details/${props.imdbID}`" class="block rounded-md">
-    <div class="card bg-base-100 sm:w-96 h-[500px] shadow-sm cursor-pointer hover:shadow-lg hover:shadow-gray-400 focus-within:shadow-lg transition-all duration-200"  :id="props.imdbID">
+    <div class="card bg-base-100 h-[500px] shadow-sm cursor-pointer hover:shadow-lg hover:shadow-gray-400 focus-within:shadow-lg transition-all duration-200"  :id="props.imdbID">
       <figure class="rounded-t-md">
         <img
           :src="currentPoster"
           :alt="`${props.Title} poster`"
-          class="h-full sm:h-96 w-full object-cover"
+          class="h-full sm:h-96 w-full object-cover rounded-t-md"
           @error="handleImageError"
         />
       </figure>
