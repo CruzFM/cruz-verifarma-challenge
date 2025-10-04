@@ -35,7 +35,7 @@ const item = ref(data.value);
       <span>Error loading movie details</span>
     </div>
   </div>
-  <main v-else class="container mx-auto p-4 text-white pt-20">
+  <main v-else class="container mx-auto p-4 text-white pt-20 min-h-dvh">
     <nav class="mb-6">
       <button @click="$router.back()" class="btn btn-ghost gap-2">
         ← Back
