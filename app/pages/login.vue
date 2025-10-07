@@ -55,7 +55,7 @@ async function login() {
         <input
           v-model="credentials.email"
           type="email"
-          class="input bg-neutral w-full border-gray-600 focus:outline-none focus:ring-1 focus:ring-[#28C3CA] focus:border-[#28C3CA]"
+          class="input bg-neutral-900 w-full border-gray-600 focus:outline-none focus:ring-1 focus:ring-[#28C3CA] focus:border-[#28C3CA]"
           :class="{ 'border-red-500': errors.email }"
           placeholder="Enter your email"
           aria-describedby="email"
@@ -66,7 +66,7 @@ async function login() {
         <input
           v-model="credentials.password"
           type="password"
-          class="input bg-neutral w-full border-gray-600 focus:outline-none focus:ring-1 focus:ring-[#28C3CA] focus:border-[#28C3CA]"
+          class="input bg-neutral-900 w-full border-gray-600 focus:outline-none focus:ring-1 focus:ring-[#28C3CA] focus:border-[#28C3CA]"
           :class="{ 'border-red-500': errors.password }"
           placeholder="Enter your password"
         />
