@@ -32,30 +32,38 @@ const apiUrl = computed(() => {
   return `${baseUrl}&${params.toString()}`;
 });
 
-const { data, pending, error, refresh } = await useFetch<SearchResponse>(apiUrl);
+const { data, pending, error, refresh } = await useFetch<SearchResponse>(
+  apiUrl
+);
 
 // Store the movies in a ref() reactive variable
 const movies = ref(data.value?.Search || []);
-
 </script>
 
 <template>
-  <section class="flex items-center my-7">
-    <h2 class="text-4xl">{{ props.title}}</h2>
-    <NuxtLink :to="`/search/${props.searchQuery}`" class="link ml-auto">
-      View more
-    </NuxtLink>
-  </section>
-  <section v-if="pending" class="loading loading-spinner"></section>
-  <section v-else-if="error" class="alert alert-error">Error loading movies</section>
-  <section v-else class="movies-grid ">
-    <Card v-for="movie in movies" :key="movie.imdbID" v-bind="movie" />
+  <section class=" my-20">
+    <header class="flex items-center my-7">
+      <h2 class="text-4xl font-semibold">{{ props.title }}</h2>
+      <NuxtLink
+        :to="`/search/${props.searchQuery}`"
+        class="link ml-auto text-[#28C3CA]"
+      >
+        View more
+      </NuxtLink>
+    </header>
+    <div v-if="pending" class="loading loading-spinner" aria-live="polite"></div>
+    <div v-else-if="error" class="alert alert-error" role="alert">
+      Error loading movies
+    </div>
+    <div v-else class="movies-grid">
+      <Card v-for="movie in movies" :key="movie.imdbID" v-bind="movie" />
+    </div>
   </section>
 </template>
 <style scoped>
 .movies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
 }
 </style>

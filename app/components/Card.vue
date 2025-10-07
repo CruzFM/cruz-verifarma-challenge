@@ -22,6 +22,7 @@ const handleImageError = () => {
         <img
           :src="currentPoster"
           :alt="`${props.Title} poster`"
+          loading="lazy"
           class="h-full sm:h-96 w-full object-cover rounded-t-md"
           @error="handleImageError"
         />

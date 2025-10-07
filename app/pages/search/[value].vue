@@ -91,6 +91,11 @@ onUnmounted(() => {
   </main>
   <main v-else class="md:w-11/12 mx-auto p-4 min-h-dvh text-white pt-20">
     <header class="mb-4">
+    <nav class="mb-6">
+      <button @click="$router.back()" class="btn btn-ghost gap-2">
+        ← Back
+      </button>
+    </nav>
       <h1 class="text-2xl font-bold">
         Search Results for "{{ $route.params.value }}"
       </h1>

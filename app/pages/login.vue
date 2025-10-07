@@ -3,6 +3,7 @@ import { email } from "zod";
 
 definePageMeta({
   layout: false,
+  middleware: "guest",
 });
 const { loggedIn, user, fetch: refreshSession } = useUserSession();
 
@@ -46,9 +47,10 @@ async function login() {
     class="bg-neutral min-h-dvh text-white flex items-center justify-center p-4"
   >
     <div class="w-full max-w-md border border-gray-500 rounded-lg p-6">
-      <figure class="mb-6 flex justify-center">
+      <figure class="mb-2 flex justify-center">
         <img src="~/assets/images/veriflix-logo.svg" alt="Veriflix Logo" />
       </figure>
+      <h1 class=" text-3xl font-bold mb-5">Sign in</h1>
       <form class="text-white flex flex-col gap-2" @submit.prevent="login">
         <input
           v-model="credentials.email"
@@ -74,7 +76,7 @@ async function login() {
         <p v-if="errors.general" class="text-red-400 text-sm text-center">
           {{ errors.general }}
         </p>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn mt-5">Login</button>
       </form>
     </div>
   </div>
