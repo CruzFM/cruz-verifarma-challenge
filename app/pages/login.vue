@@ -46,7 +46,7 @@ async function login() {
   <div
     class="bg-neutral min-h-dvh text-white flex items-center justify-center p-4"
   >
-    <div class="w-full max-w-md border border-gray-500 rounded-lg p-6">
+    <div class="w-full max-w-md bg-neutral-900 rounded-lg p-6">
       <figure class="mb-2 flex justify-center">
         <img src="~/assets/images/veriflix-logo.svg" alt="Veriflix Logo" />
       </figure>
@@ -55,7 +55,7 @@ async function login() {
         <input
           v-model="credentials.email"
           type="email"
-          class="input bg-neutral w-full border-gray-600"
+          class="input bg-neutral w-full border-gray-600 focus:outline-none focus:ring-1 focus:ring-[#28C3CA] focus:border-[#28C3CA]"
           :class="{ 'border-red-500': errors.email }"
           placeholder="Enter your email"
           aria-describedby="email"
@@ -66,7 +66,7 @@ async function login() {
         <input
           v-model="credentials.password"
           type="password"
-          class="input bg-neutral w-full border-gray-600"
+          class="input bg-neutral w-full border-gray-600 focus:outline-none focus:ring-1 focus:ring-[#28C3CA] focus:border-[#28C3CA]"
           :class="{ 'border-red-500': errors.password }"
           placeholder="Enter your password"
         />
